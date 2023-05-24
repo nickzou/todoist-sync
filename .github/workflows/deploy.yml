@@ -17,7 +17,7 @@ jobs:
           script: |
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
-            rmdir -f todoist-sync
+            rmdir todoist-sync
             git clone git@github.com:nickzou/todoist-sync.git
             cd todoist-sync
             npm install
