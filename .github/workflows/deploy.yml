@@ -22,3 +22,8 @@ jobs:
             cd test
             git clone git@github.com:username/projectname
             echo 'Deployment to digital ocean finished'
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
