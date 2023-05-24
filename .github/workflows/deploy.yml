@@ -18,4 +18,6 @@ jobs:
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             git clone git@github.com:nickzou/todoist-sync.git
+            cd todoist-sync
+            npm install
             echo 'Deployment to digital ocean finished'
