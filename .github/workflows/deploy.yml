@@ -1,6 +1,5 @@
-name: Deploy to Digital Ocean
-
-on:
+name: Deploy to DigitalOcean Droplet
+"on":
   push:
     branches:
       - main
@@ -8,22 +7,18 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Deploy to DigitalOcean Droplet
+        uses: appleboy/ssh-action@master
         with:
-          node-version: 14
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
-      - name: Deploy to Digital Ocean
-        run: |
-          ssh user@your-droplet-ip "cd /path/to/your/app && git pull && npm install && npm run build && pm2 restart your-app-name"
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USERNAME}}
+          key: ${{secrets.KEY}}
+          script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            rm -rf test
+            mkdir test
+            cd test
+            git clone git@github.com:username/projectname
+            echo 'Deployment to digital ocean finished'
