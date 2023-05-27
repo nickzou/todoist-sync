@@ -1,17 +1,16 @@
-import * as dotenv from "dotenv";
+import express, { Request, Response } from "express";
+// import * as dotenv from "dotenv";
 import { TodoistApi } from "@doist/todoist-api-typescript";
 
-dotenv.config();
+const port = 3000;
 
-console.log("hello world");
+//dotenv.config();
 
-// setInterval(() => {
-//   const api = new TodoistApi("177d3de82208c3098076935a7ea33eedc1be75a5");
-//   api
-//     .addTask({ content: "Buy Milk", projectId: "2078702594" })
-//     .then((task) => console.log(task))
-//     .catch((error) => console.log(error));
-// }, 120000);
+const app = express();
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
 
 // api
 //   .getProjects()
@@ -21,3 +20,9 @@ console.log("hello world");
 //   .catch((err) => {
 //     console.log(err);
 //   });
+
+// const api = new TodoistApi("177d3de82208c3098076935a7ea33eedc1be75a5");
+//   api
+//     .addTask({ content: "Buy Milk", projectId: "2078702594" })
+//     .then((task) => console.log(task))
+//     .catch((error) => console.log(error));
