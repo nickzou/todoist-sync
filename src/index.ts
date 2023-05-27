@@ -14,12 +14,12 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
 
-cron.schedule("*/1 * * * *", () => {
-  api
-    .addTask({ content: "Buy Milk", projectId: "2078702594" })
-    .then((task) => console.log(task))
-    .catch((error) => console.log(error));
-});
+// cron.schedule("*/1 * * * *", () => {
+//   api
+//     .addTask({ content: "Buy Milk", projectId: "2078702594" })
+//     .then((task) => console.log(task))
+//     .catch((error) => console.log(error));
+// });
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
